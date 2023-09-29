@@ -59,7 +59,7 @@ const Nav = () => {
       <div className='sm:hidden flex'>
         {
           isUserLoggedIn? (
-            <div className="flex">
+            <div className="flex relative">
               <Image src="/asserts/images/logo.svg" alt="profile" width={37} height={37} className=' rounded-full cursor-pointer' onClick={()=>{setToggleDropDown((prev)=>!prev)}}/>
               {
                 toggleDropDown && (
@@ -67,6 +67,18 @@ const Nav = () => {
                     <Link href='/profile' className="dropdown_link" onClick={()=> setToggleDropDown(false)}>
                       My Profile
                     </Link>
+                    <Link href='/create-prompt' className="dropdown_link" onClick={()=> setToggleDropDown(false)}>
+                      Create Prompt
+                    </Link>
+                    <button
+                    type='button'
+                    onClick = {()=> {
+                      setToggleDropDown(false)
+                      signOut()
+                    }}
+                    className='black_btn mt-5 w-full'>
+                      Sign Out
+                    </button>
                   </div>
                 )
               }
