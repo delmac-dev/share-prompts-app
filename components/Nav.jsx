@@ -10,15 +10,18 @@ const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false)
 
-  useEffect(
-    () => {
+  useEffect(() => {
       const setTheProviders = async () => {
         const response = await getProviders();
         setProviders(response);
       }
 
       setTheProviders();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+      console.log(providers);
+    }, [providers]);
 
   return (
     <div className='flex-between w-full mb-16 pt-3'>
@@ -88,7 +91,7 @@ const Nav = () => {
               {
               providers && Object.values(providers).map((provider) => (
                 <button type='button' key={provider.name} onClick={() => signIn(provider.id)} className='black_btn'>
-                  Sign In
+                  Sign In Mobile
                 </button>
               ))
             }
