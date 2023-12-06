@@ -10,7 +10,7 @@ export const connectToDB = async()=> {
     }
     
     try {
-        await mongoose.connect('mongodb+srv://delmac:liRHS2OgbtroSDkF@promptopia.nlqbyk6.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp', {
+        await mongoose.connect(process.env.MONGODB_URL, {
             dbName: "share_prompt",
             useNewUrlParser: true,
             useUnifiedTopology: true
