@@ -16,6 +16,8 @@ export const authOptions = {
             })
             
             if (sessionUser) session.user.id = sessionUser._id.toString();
+
+            return session
         },
         async signIn({profile}) {
             try {

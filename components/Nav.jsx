@@ -6,8 +6,7 @@ import { useState, useEffect } from 'react'
 import {signIn, signOut, useSession, getProviders} from 'next-auth/react'
 
 const Nav = () => {
-  // const { data: session } = useSession();
-  const session = {};
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropDown, setToggleDropDown] = useState(false)
 
@@ -19,11 +18,6 @@ const Nav = () => {
 
       setTheProviders();
     }, []);
-
-  useEffect(()=> {
-    console.log("providers ", providers);
-    console.log("session user", session?.user);
-  }, [providers])
 
   return (
     <div className='flex-between w-full mb-16 pt-3'>
@@ -51,7 +45,7 @@ const Nav = () => {
             {
               providers && Object.values(providers).map((provider) => (
                 <button type='button' key={provider.name} onClick={() => signIn(provider.id)} className='black_btn'>
-                  Sign In With {provider.name}
+                  Sign In
                 </button>
               ))
             }
@@ -82,7 +76,7 @@ const Nav = () => {
                       signOut()
                     }}
                     className='black_btn mt-5 w-full'>
-                      Sign Out With {provider.name}
+                      Sign Out
                     </button>
                   </div>
                 )
@@ -93,7 +87,7 @@ const Nav = () => {
               {
               providers && Object.values(providers).map((provider) => (
                 <button type='button' key={provider.name} onClick={() => signIn(provider.id)} className='black_btn'>
-                  Sign In Mobile
+                  Sign In
                 </button>
               ))
             }
