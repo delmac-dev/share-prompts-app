@@ -37,7 +37,7 @@ const Nav = () => {
                 Sign Out
               </button>
               <Link href={"/profile"}>
-                <Image src="/asserts/images/logo.svg" alt="profile" width={37} height={37} className='object-contain rounded-full' />
+                <Image src={session?.user.image} alt="profile" width={37} height={37} className='object-contain rounded-full' />
               </Link>
             </div>
           ) : (
@@ -59,7 +59,7 @@ const Nav = () => {
         {
           session?.user ? (
             <div className="flex relative">
-              <Image src="/asserts/images/logo.svg" alt="profile" width={37} height={37} className=' rounded-full cursor-pointer' onClick={()=>{setToggleDropDown((prev)=>!prev)}}/>
+              <Image src={session?.user.image} alt="profile" width={37} height={37} className=' rounded-full cursor-pointer' onClick={()=>{setToggleDropDown((prev)=>!prev)}}/>
               {
                 toggleDropDown && (
                   <div className="dropdown">
