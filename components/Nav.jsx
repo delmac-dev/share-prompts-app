@@ -19,10 +19,6 @@ const Nav = () => {
       setTheProviders();
     }, []);
 
-    useEffect(() => {
-      console.log(providers);
-    }, [providers]);
-
   return (
     <div className='flex-between w-full mb-16 pt-3'>
       <Link href="/" className='flex flex-center gap-2'>
@@ -49,7 +45,7 @@ const Nav = () => {
             {
               providers && Object.values(providers).map((provider) => (
                 <button type='button' key={provider.name} onClick={() => signIn(provider.id)} className='black_btn'>
-                  Sign In
+                  Sign In With {provider.name}
                 </button>
               ))
             }
@@ -80,7 +76,7 @@ const Nav = () => {
                       signOut()
                     }}
                     className='black_btn mt-5 w-full'>
-                      Sign Out
+                      Sign Out With {provider.name}
                     </button>
                   </div>
                 )

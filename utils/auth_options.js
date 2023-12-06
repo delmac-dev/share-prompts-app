@@ -1,13 +1,14 @@
-import GoogleProvider from 'next-auth/providers/google';
+import GitHubProvider from "next-auth/providers/github";
 import User from '@models/user'
 import {connectToDB} from '@utils/database'
 
 export const authOptions = {
     providers: [
-        GoogleProvider({
-            clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET
-        })],
+        GitHubProvider({
+            clientId: process.env.GITHUB_ID,
+            clientSecret: process.env.GITHUB_SECRET
+        })
+    ],
     callbacks: {
         async session({session}) {
             const sessionUser = await User.findOne({
@@ -25,15 +26,13 @@ export const authOptions = {
                     const user = new User({
                         email: profile.email,
                         username: profile.name.replace(' ', '').toLowerCase(),
-                        image: profile.picture,
+                        image: profile.picture | "",
                     });
                     await user.save();
                 }
 
                 return true;
             }catch (error) {
-                console.log(error); 
-                console.log("erorr here");
                 return false;
 
             }
