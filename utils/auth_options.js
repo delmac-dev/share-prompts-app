@@ -14,8 +14,8 @@ export const authOptions = {
             const sessionUser = await User.findOne({
                 email: session?.user?.email
             })
-
-            if (sessionUser) session.user.id = sessionUser._id.toString();   
+            
+            if (sessionUser) session.user.id = sessionUser._id.toString();
         },
         async signIn({profile}) {
             try {
