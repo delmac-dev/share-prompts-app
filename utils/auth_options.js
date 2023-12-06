@@ -12,10 +12,10 @@ export const authOptions = {
     callbacks: {
         async session({session}) {
             const sessionUser = await User.findOne({
-                email: session.user.email
+                email: session?.user?.email
             })
 
-            session.user.id = sessionUser._id.toString();   
+            if (sessionUser) session.user.id = sessionUser._id.toString();   
         },
         async signIn({profile}) {
             try {
@@ -26,7 +26,7 @@ export const authOptions = {
                     const user = new User({
                         email: profile.email,
                         username: profile.name.replace(' ', '').toLowerCase(),
-                        image: profile.picture | "",
+                        image: profile.avatar_url,
                     });
                     await user.save();
                 }
