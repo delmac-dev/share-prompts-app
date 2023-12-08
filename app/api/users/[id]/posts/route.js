@@ -4,6 +4,9 @@ import Prompt from "@models/prompt";
 export const GET = async (req, {params}) => {
     try {
         await connectToDB();
+        if (!params.id) {
+            return res.status(400).send('Missing ID parameter');
+        }
 
         const prompts = await Prompt.find({
             creator: params.id
@@ -13,6 +16,5 @@ export const GET = async (req, {params}) => {
     }catch (error) {
         console.log(error);
         return new Response("There was a problem fetching prompts", { status: 500 });
-
     }
 }

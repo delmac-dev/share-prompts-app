@@ -18,17 +18,21 @@ const MyProfile = () => {
 
     useEffect(()=> {
         const fetchPosts = async () => {
-          const response = await fetch(`/api/users/${session?.user.id}/posts`);
-    
-          if(response.ok){
-            const data = await response.json();
-    
-            setPosts(data);
-          }
+
+            if(!session?.user) return;
+            
+            const response = await fetch(`/api/users/${session?.user.id}/posts`);
+        
+            if(response.ok){
+                const data = await response.json();
+                setPosts(data);
+            }
         };
     
-        fetchPosts();
-    }, []);
+        if (session) {
+            fetchPosts();
+        }
+    }, [session]);
 
     const handleEdit = () => {
 
