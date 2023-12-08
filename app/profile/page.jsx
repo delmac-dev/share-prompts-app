@@ -45,7 +45,7 @@ const MyProfile = () => {
     return (
         <ProfileCard
             name="My"
-            desc="Welcome to ypur personalised profile page"
+            desc="Welcome to your personalised profile page"
             data={posts}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
