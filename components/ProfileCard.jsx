@@ -19,6 +19,8 @@ const ProfileCard = ({name,desc,data,handleEdit,handleDelete}) => {
             key={post._id}
             post = {post}
             handleTagClick={handleTagClick}
+            handleEdit={()=>handleEdit(post)}
+            handleDelete={()=>handleDelete(post)}
           />
         ))} 
     </div>
