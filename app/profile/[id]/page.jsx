@@ -11,46 +11,48 @@ const OtherProfile = () => {
     const params = useParams();
     const { id:userID } = params;
     const [posts, setPosts] = useState([]);
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState('');
 
     useEffect(()=>{
         if(!userID) router.push('/');
 
         const fetchPosts = async () => {
-
-            console.log(userID);
             
             const response = await fetch(`/api/users/${userID}`);
         
             if(response.ok){
                 const data = await response.json();
-                log
-                setUser(data);
+                setUser(data[0]);
+                if(data.length > 0) {
+                    let postResponse = await fetch( `/api/users/${userID}/posts`);
+    
+                    if(postResponse.ok){
+                        let postData = await postResponse.json();
+                        console.log("posts", postData);
+                        setPosts(postData);
+                    };
+                }
             };
 
-            if(user) {
-                let response = await fetch(`/api/users/${userID}/posts`);
-
-                if(response.ok){
-                    let data = await response.json();
-                    setPosts(data);
-                };
-            }
         };
     
         if (userID) {
             fetchPosts();
         }
-    }, [userID]);
+    },[userID]);
 
 
   return (
-    <ProfileCard
-        name={user?.username || "Name"}
-        desc={`"Welcome to ${user.username} personalised profile page"`}
-        data={posts}
-    />
+    <>
+        {user && (
+            <ProfileCard
+            name={user.username}
+            desc={`Welcome to ${user.username} personalised profile page`}
+            data={posts}
+            />
+        )}
+    </>
   )
-}
+};
 
 export default OtherProfile;
