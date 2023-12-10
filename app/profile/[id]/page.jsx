@@ -17,11 +17,14 @@ const OtherProfile = () => {
         if(!userID) router.push('/');
 
         const fetchPosts = async () => {
+
+            console.log(userID);
             
             const response = await fetch(`/api/users/${userID}`);
         
             if(response.ok){
                 const data = await response.json();
+                log
                 setUser(data);
             };
 
@@ -43,7 +46,7 @@ const OtherProfile = () => {
 
   return (
     <ProfileCard
-        name={user.username}
+        name={user?.username || "Name"}
         desc={`"Welcome to ${user.username} personalised profile page"`}
         data={posts}
     />
