@@ -28,7 +28,6 @@ const OtherProfile = () => {
     
                     if(postResponse.ok){
                         let postData = await postResponse.json();
-                        console.log("posts", postData);
                         setPosts(postData);
                     };
                 }
