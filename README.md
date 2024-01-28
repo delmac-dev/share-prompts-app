@@ -31,7 +31,7 @@ Embark on a journey into creativity with my latest project—an innovative Dynam
 2. Navigate to the project directory:
 
     ```bash
-    cd nextjs-travel-website
+    cd share-prompts-app
     ```
 3. Install the dependencies:
 
