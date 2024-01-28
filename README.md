@@ -10,15 +10,15 @@ Embark on a journey into creativity with my latest project—an innovative Dynam
 
 ## Features
 
--Seamlessly post prompts and share your creative ideas with the community.
--Dive into a treasure trove of diverse prompts posted by fellow users.
--Personalize your prompts with easy editing options and manage them effortlessly.
--Hassle-free account management, ensuring a smooth user experience
--Secure and convenient login using GitHub OAuth for enhanced user authentication.
--Prioritize user privacy with robust credential authentication.
--Efficiently search through prompts using intuitive search features and tags
--Organize and categorize prompts with a user-friendly tagging system
--Enjoy a seamless experience on any device with the responsive and intuitive design
+- Seamlessly post prompts and share your creative ideas with the community.
+- Dive into a treasure trove of diverse prompts posted by fellow users.
+- Personalize your prompts with easy editing options and manage them effortlessly.
+- Hassle-free account management, ensuring a smooth user experience
+- Secure and convenient login using GitHub OAuth for enhanced user authentication.
+- Prioritize user privacy with robust credential authentication.
+- Efficiently search through prompts using intuitive search features and tags
+- Organize and categorize prompts with a user-friendly tagging system
+- Enjoy a seamless experience on any device with the responsive and intuitive design
 
 ## Getting Started
 
